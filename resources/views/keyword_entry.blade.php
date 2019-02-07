@@ -1,3 +1,10 @@
+<?php
+
+use App\Keyword;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

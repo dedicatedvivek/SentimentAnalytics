@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Keywords;
+use App\Keyword;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -23,9 +23,9 @@ class KeywordsController extends Controller
 
      	
 
-//      	$data=array('keyword_name' =>$keywords,'language' =>$languages);
+    	$data=array('keyword_name' =>$keywords);
 
-//      	DB::table('keywords')->insert($data);
+     	DB::table('keywords_master')->insert($data);
 
      	return view('keyword_entry');
     	

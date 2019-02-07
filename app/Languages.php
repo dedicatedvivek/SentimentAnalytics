@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Keywords extends Model
+class Languages extends Model
 {
-    protected $table = 'keywords_master';
+    protected $table = 'languages_master';
     public $timestamps = false;
 }
