@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Keyword;
+use App\Languages;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -19,13 +20,35 @@ class KeywordsController extends Controller
      	$keywords= $req->input('keyword');
      	$languages=$req->input('lang');
 
-     	echo print_r($languages);
+     	 $arr_size = sizeof($languages);
 
-     	
+     	 
 
-    	$data=array('keyword_name' =>$keywords);
 
-     	DB::table('keywords_master')->insert($data);
+
+     	 for ($i=0; $i <$arr_size ; $i++) { 
+     	 	$lang_id = $languages[$i];
+     	 	$lang_name_arr = Languages::select('lang_name')
+     	 	->where('lang_id',$lang_id)
+     	 	->get();
+
+     	 	$split_elem = explode(";",$lang_id);
+     	 	$langg_id = $split_elem[0];
+
+     	 	$lang_arr_elem = $lang_name_arr[0];
+     	 	$lang_name = $lang_arr_elem['lang_name'];
+
+     	 	$data=array('keyword_name'=>$keywords,'fo_lang_id' =>$langg_id ,'language' =>$lang_name);
+
+     	 	DB::table('keywords_master')->insert($data);
+     	 }
+
+
+
+
+    	
+
+     	 
 
      	return view('keyword_entry');
     	

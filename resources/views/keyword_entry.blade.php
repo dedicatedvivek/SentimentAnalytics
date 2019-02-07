@@ -1,6 +1,6 @@
 <?php
 
-use App\Keyword;
+use App\Languages;
 
 ?>
 
@@ -210,12 +210,33 @@ use App\Keyword;
                     <br>
                            <label id='lang' for="lng">Language</label>
 
-                
-                <input type="checkbox"  value="en" name="lang[]" >English
-                <input type="checkbox"  value="ru" name="lang[]" >Russian
-                <input type="checkbox"  value="es"name="lang[]" >Spanish
-                <input type="checkbox"  value="de" name="lang[]" >German
-                <input type="checkbox"  value="fr"name="lang[]" >French
+ <?php
+
+         $lang_arr= Languages::select('lang_id')
+          ->get();
+
+
+          $size = sizeof($lang_arr);
+
+        for ($i=0; $i <$size ; $i++) { 
+           $arr_elem = $lang_arr[$i];
+           $id_val = $arr_elem['lang_id'];
+           $lang_name_arr = Languages::select('lang_name')
+           ->where('lang_id',$id_val)
+           ->get();
+           $lang_name_arr_elem = $lang_name_arr[0];
+           $lang_name = $lang_name_arr_elem['lang_name'];
+           echo "<input type='checkbox' value=$id_val; name='lang[]'/>";
+           echo"&nbsp;";
+           echo $lang_name;
+
+           echo"&nbsp;";
+           
+         } 
+        ?>
+
+
+        
     
                 </div>
                 <div id="statusdiv"></div>
