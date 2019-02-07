@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2019 at 12:26 PM
+-- Generation Time: Feb 07, 2019 at 02:44 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -41,20 +41,12 @@ CREATE TABLE `keywords_master` (
 --
 
 INSERT INTO `keywords_master` (`keyword_id`, `keyword_name`, `language`, `fo_lang_id`, `active_status`) VALUES
-(1, '#haircare', '', 0, 0),
-(2, '#facial', '', 0, 0),
-(3, '#pimplescare', '', 0, 0),
-(4, '#Oils', '', 0, 0),
-(5, '#haircare', '', 0, 0),
-(6, '#facial', '', 0, 0),
-(7, '#sad', '', 0, 0),
-(8, 'sda', '', 0, 0),
-(9, 'sad', '', 0, 0),
-(10, 'iasdh', '', 0, 0),
-(11, '#haircare', '', 0, 0),
-(12, '#haircare', '', 0, 0),
-(13, '#haircare', '', 0, 0),
-(14, '#haircare', '', 0, 0);
+(1, 'sdasd', 'German', 0, 0),
+(2, 'sdasd', 'Russian', 2, 0),
+(3, 'sdasd', 'Spanish', 3, 0),
+(4, 'Pimplescare', 'German', 0, 0),
+(5, 'Pimplescare', 'Russian', 2, 0),
+(6, 'Pimplescare', 'Spanish', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -64,6 +56,7 @@ INSERT INTO `keywords_master` (`keyword_id`, `keyword_name`, `language`, `fo_lan
 
 CREATE TABLE `languages_master` (
   `lang_id` int(11) NOT NULL,
+  `lang_code` varchar(200) NOT NULL,
   `lang_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -71,13 +64,12 @@ CREATE TABLE `languages_master` (
 -- Dumping data for table `languages_master`
 --
 
-INSERT INTO `languages_master` (`lang_id`, `lang_name`) VALUES
-(0, 'de'),
-(2, 'ru'),
-(3, 'es'),
-(4, 'fr'),
-(5, 'en'),
-(6, 'fhgv');
+INSERT INTO `languages_master` (`lang_id`, `lang_code`, `lang_name`) VALUES
+(0, 'de', 'German'),
+(2, 'ru', 'Russian'),
+(3, 'es', 'Spanish'),
+(4, 'fr', 'French'),
+(5, 'en', 'English');
 
 -- --------------------------------------------------------
 
@@ -152,7 +144,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `keywords_master`
 --
 ALTER TABLE `keywords_master`
-  MODIFY `keyword_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `keyword_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `languages_master`
