@@ -23,4 +23,10 @@ Route::get('/keyword_entry', function () {
     return view('keyword_entry');
 });
 
+Route::get('/keyword_registry', function () {
+    return view('keyword_registry');
+});
+
+
 Route::post("/insert_keyword","KeywordsController@insert_keyword");
+Route::post("/delete_keyword","KeywordsController@delete_keyword");

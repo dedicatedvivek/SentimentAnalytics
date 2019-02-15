@@ -53,5 +53,23 @@ class KeywordsController extends Controller
      	return view('keyword_entry');
     	
  }
+        function delete_keyword(Request $req){
+
+            
+                $del_id= $req->input('del_id');
+                
+
+                
+$set0 = 0;
+     $datadel=$arrayName = array('active_status' =>$set0);
+  
+    
+     $update_active = Keyword::where('keyword_id',$del_id)
+                      ->update($datadel);
+      return view('keyword_registry');
+
+
+
+}
 
 }
