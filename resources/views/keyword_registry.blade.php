@@ -93,8 +93,8 @@ use Illuminate\Http\Request;
 							</tr>
 						</thead>
 						<tbody>
-							<form method='post' action='delete_keyword'>
-							{{ csrf_field() }}
+							<!-- <form method='post' action='delete_keyword'> -->
+							<!-- {{ csrf_field() }} -->
 									<?php	
 									
 									for($i=0; $i < $keylang_array_count; $i++){ 
@@ -108,12 +108,17 @@ use Illuminate\Http\Request;
 									
 									
 									echo "<tr>"		;							
-									echo "<input type='hidden' name= 'del_id' value='$serial' />";
+									// echo "<input type='hidden' name= 'del_id' value='$serial' />";
 									echo"<td class='column1'>$serial";
 									echo"</td>";
 									echo"<td class='column2'>$keyword</td>";
 									echo"<td class='column3'>$language</td>";
-									echo"<td class='column4'><input class='sub_button'  type='submit' value= 'X'></td>";
+									echo"<td class='column4'>";
+									echo "<form method='post' action='delete_keyword'>";
+									// echo "{{ csrf_field() }}";
+									echo "<input type='hidden' name= '_token' value='".csrf_token()."' /><input type='hidden' name= 'del_id' value='$serial' /><input class='sub_button' type='submit' value='X' />";
+									echo "</form>";
+									echo "</td>";
 									
 									
 									
@@ -123,7 +128,7 @@ use Illuminate\Http\Request;
 								
 								
 							}?>
-						</form>
+						<!-- </form> -->
 								
 
 								
